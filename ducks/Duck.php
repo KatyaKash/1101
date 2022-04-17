@@ -1,16 +1,17 @@
 <?php
 require_once 'flybehavior.php';
 require_once 'quackbehavior.php';
+require_once 'mallardduck.php';
 
 abstract class Duck {
 	protected $flyBehavior;
 	protected $quackBehavior;
 
-	public void setFlyBehavior(FlyBehavior fb){
-		flyBehavior = fb;
+	public function setFlyBehavior($fb){
+		$this->flyBehavior = $fb;
 	}
-	public void setQuackBehavior(QuackBehavior qb){
-		quackBehavior = qb;
+	public function setQuackBehavior($qb){
+		$this->quackBehavior = $qb;
 	}
 
 	abstract public function display();
@@ -21,19 +22,10 @@ abstract class Duck {
 		$this->quackBehavior->quack1();
 	}
 	public function swim(){
-		echo 'Все утки плавают, даже деревянные';
+		echo 'Все утки плавают, даже деревянные<br>';
 	}
 }
 
-public class ModelDuck extends Duck{
-	public ModelDuck(){
-		flyBehavior = new FlyNoWay();
-		quackBehavior = new Quack();
-	}
-	public void display(){
-		echo 'im a model duck';
-	}
-}
 
 
 ?>
